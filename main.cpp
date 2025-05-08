@@ -1,5 +1,10 @@
 #include <iostream>
-#include "lib/unitN/include/unit_N.hpp" // N - номер подзадачи
+
+#include <fstream>
+#include "lib\\unit4\\include\\unit_4.hpp"
+#include <sstream>
+#include <vector>
+#include <stdexcept>
 
 int main ()
 {
