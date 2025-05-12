@@ -1,5 +1,10 @@
 #include "../include/HilbertIntegral.hpp"
 
+/**
+ * @param gammas input parameter. Grid on a circle. Node gamma i-th.
+ * @param real_function_values input parameter. Real values of the function at the gamma nodes.
+ * @param imaginary_function_values output parameter. Calculated imaginary values of the function at the gamma mode.
+ */
 void hilbert_integral(const std::vector<double> &gammas, 
                       const std::vector<double> &real_function_values, 
                       std::vector<double> &imaginary_function_values)
