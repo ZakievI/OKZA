@@ -1,0 +1,9 @@
+{
+	"InstallScripts" : 
+	[
+		"C:/projects/okza/OKZA/build/cmake_install.cmake",
+		"C:/projects/okza/OKZA/build/lib/unit0/cmake_install.cmake",
+		"C:/projects/okza/OKZA/build/lib/unit9/cmake_install.cmake"
+	],
+	"Parallel" : false
+}
