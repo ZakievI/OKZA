@@ -7,6 +7,11 @@
 #include <vector>
 #include <stdexcept>
 #define s_a 0.992308
+#define bet 0.15482
+#define gam 0.476448
+#define C1 0.747573
+#define gam_a 3.451234
+#define u0 0.245876
 
 int main()
 {
@@ -20,24 +25,27 @@ int main()
     {
         throw std::invalid_argument("Неправильный путь");
     }
-    std::vector<std::vector<double>> data_s_g;
-    std::vector<std::vector<double>> data_s_fi;
+    std::vector<double> data_s;
+    std::vector<double> data_fi_s;
+    std::vector<double> data_g;
+    std::vector<double> data_fi_g;
     std::string line;
     int len_fi;
     file_s_fi >> len_fi;
     std::getline(file_s_fi, line);
     std::getline(file_s_fi, line);
-    data_s_fi.resize(len_fi + 1);
+    data_fi_s.resize(len_fi + 1);
+    data_s.resize(len_fi + 1);
 
     int len_g;
     file_s_g >> len_g;
     std::getline(file_s_g, line);
     std::getline(file_s_g, line);
-    data_s_g.resize(len_g + 1);
+    data_g.resize(len_g + 1);
+    data_fi_g.resize(len_g + 1);
 
     for (int i = 0; i < len_fi + 1; i++)
     {   
-        data_s_fi[i].resize(2);
         std::getline(file_s_fi, line); // Читаем файл построчно
         std::vector<double> row;
         std::istringstream iss(line);
@@ -48,12 +56,11 @@ int main()
             row.push_back(value);
         }
 
-        data_s_fi[i][0] = row[0]; // Добавляем строку в вектор
-        data_s_fi[i][1] = row[2]; // Добавляем строку в вектор
+        data_s[i] = row[0]; // Добавляем строку в вектор
+        data_fi_s[i] = row[2]; // Добавляем строку в вектор
     }
     for (int i = 0; i < len_g + 1; i++)
     {   
-        data_s_g[i].resize(2);
         std::getline(file_s_g, line); // Читаем файл построчно
         std::vector<double> row;
         std::istringstream iss(line);
@@ -64,10 +71,11 @@ int main()
             row.push_back(value);
         }
 
-        data_s_g[i][0] = row[0]; // Добавляем строку в вектор
-        data_s_g[i][1] = row[1];
+        data_g[i] = row[0]; // Добавляем строку в вектор
+        data_fi_g[i] = row[1];
     }
     file_s_fi.close(); // Закрываем файл
     file_s_g.close(); // Закрываем файл
-    calculate_s(data_s_fi, data_s_g, s_a);
+    std::cout<<"hello";
+    calculate_s(data_s, data_fi_s, data_g, bet, gam, C1, u0, s_a, gam_a);
 }

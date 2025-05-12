@@ -1,7 +1,10 @@
 //���������� ���������� ��������
 
+#define _UNICODE
+#define UNICODE
 #include <windows.h>
 #include <iostream>
+#include <unistd.h>
 
 typedef int (__stdcall *FC_SPLINE)(int* n, double* x, double* y, double* bb, double* cc); 
 /*
@@ -50,7 +53,8 @@ int LoadSplineDLL()
 {
     // измененные строки
     DWORD error = GetLastError();
-    hSpline=LoadLibraryA("D:\\python_programm\\OKZA\\resourse\\fcalc.dll"); //именить путь под ваш проект
+
+    hSpline=LoadLibrary(L"resourse\\fcalc.dll");
     if (!hSpline) {
         DWORD error = GetLastError();
         std::cerr << "Ошибка загрузки DLL! Код: " << error << std::endl;
