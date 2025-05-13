@@ -1,9 +1,3 @@
 C:/projects/okza/OKZA/build/CMakeFiles/okza_main.dir
 C:/projects/okza/OKZA/build/CMakeFiles/edit_cache.dir
 C:/projects/okza/OKZA/build/CMakeFiles/rebuild_cache.dir
-C:/projects/okza/OKZA/build/lib/unit0/CMakeFiles/unit0.dir
-C:/projects/okza/OKZA/build/lib/unit0/CMakeFiles/edit_cache.dir
-C:/projects/okza/OKZA/build/lib/unit0/CMakeFiles/rebuild_cache.dir
-C:/projects/okza/OKZA/build/lib/unit9/CMakeFiles/unit9.dir
-C:/projects/okza/OKZA/build/lib/unit9/CMakeFiles/edit_cache.dir
-C:/projects/okza/OKZA/build/lib/unit9/CMakeFiles/rebuild_cache.dir

@@ -1,38 +1,29 @@
-cmake_minimum_required(VERSION 3.15)
-project(OKZA)
+cmake_minimum_required(VERSION 3.10)
 
+# Project name and version
+project(MyProject VERSION 1.0)
+
+# Set C++ standard
 set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_STANDARD_REQUIRED True)
 
-# Путь к заголовкам fcalc.h и библиотеке fcalc.dll
-set(FCALC_INCLUDE_DIR "${CMAKE_SOURCE_DIR}/resourse")
-set(FCALC_DLL "${CMAKE_SOURCE_DIR}/resourse/fcalc.dll")
+# Add include directories
+include_directories(
+    ${PROJECT_SOURCE_DIR}/lib/unit0/include
+    ${PROJECT_SOURCE_DIR}/lib/unit9/include
+    ${PROJECT_SOURCE_DIR}/resourse
+)
 
-add_subdirectory(lib/unit0)
-# add_subdirectory(lib/unit1)
-# add_subdirectory(lib/unit2)
-# add_subdirectory(lib/unit3)
-# add_subdirectory(lib/unit4)
-# add_subdirectory(lib/unit5)
-# add_subdirectory(lib/unit6)
-# add_subdirectory(lib/unit7)
-# add_subdirectory(lib/unit8)
-add_subdirectory(lib/unit9)
-# add_subdirectory(lib/unit10)
+# Add source files
+set(SOURCES
+    main.cpp
+    lib/unit0/source/test_unit0.cpp
+    lib/unit9/source/test_unit9.cpp
+)
 
-# Основной исполняемый файл (main.cpp)
-add_executable(okza_main main.cpp)
+# Add executable
+add_executable(okza_main ${SOURCES})
 
-target_link_libraries(okza_main PRIVATE
-                     unit0
-                     unit9
-                     )
-
-if(WIN32)
-    add_custom_command(
-        TARGET okza_main POST_BUILD
-        COMMAND ${CMAKE_COMMAND} -E copy_directory
-            "${CMAKE_SOURCE_DIR}/resourse/"
-            "$<TARGET_FILE_DIR:okza_main>/resourse/"
-    )
-endif()
+# If you want to link fcalc.dll at runtime, you can optionally copy it to the build directory
+file(COPY ${PROJECT_SOURCE_DIR}/resourse/fcalc.dll
+     DESTINATION ${CMAKE_BINARY_DIR})
