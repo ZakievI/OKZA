@@ -1,9 +1,0 @@
-# ninja log v6
-8	1011	7688318859430455	CMakeFiles/MyExecutable.dir/main.cpp.obj	feaa36bacc1ff652
-51	1029	7688318859866752	CMakeFiles/MyExecutable.dir/lib/unit9/source/test_unit9.cpp.obj	2e696dc8b928a703
-42	1018	7688318859783317	CMakeFiles/MyExecutable.dir/lib/unit0/source/test_unit0.cpp.obj	9cfe0b666990860c
-1030	1303	7688318869650347	MyExecutable.exe	57a1d548093137f2
-74	1172	7688319624276270	CMakeFiles/okza_main.dir/lib/unit9/source/test_unit9.cpp.obj	f59dc36d606ac647
-64	1186	7688319624119003	CMakeFiles/okza_main.dir/lib/unit0/source/test_unit0.cpp.obj	89137feee64157e3
-27	1189	7688319623806503	CMakeFiles/okza_main.dir/main.cpp.obj	dc31a32ad922b87e
-1190	1470	7688319635430490	okza_main.exe	e36ab3ad4a8614b1

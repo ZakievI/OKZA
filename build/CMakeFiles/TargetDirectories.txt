@@ -1,3 +1,0 @@
-C:/projects/okza/OKZA/build/CMakeFiles/okza_main.dir
-C:/projects/okza/OKZA/build/CMakeFiles/edit_cache.dir
-C:/projects/okza/OKZA/build/CMakeFiles/rebuild_cache.dir
