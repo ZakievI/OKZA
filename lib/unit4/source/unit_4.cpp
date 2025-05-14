@@ -75,8 +75,6 @@ std::vector<double> calculate_s(std::vector<double> s,
         throw std::invalid_argument("Ошибка calculate_s! size(s)!=size(fi_s)");
     int N_fi_s = fi_s.size();
 
-    bool check_zerro = false;
-
     // проверка на присутствия 0 в fi 
     auto it = std::find(fi_s.begin(), fi_s.end(), 0.0);
     if (it != fi_s.end())
@@ -89,7 +87,6 @@ std::vector<double> calculate_s(std::vector<double> s,
     std::vector<double> gamma_(N_fi_s, 1.0);
     std::vector<double> gamma_s_(N_fi_s, 0.0);
     std::vector<double> s_gamma(g.size(), 0);
-    double accurate = 1;
     struct p params;
     params.beta = betta;
     params.Gamma = G;
@@ -121,10 +118,7 @@ std::vector<double> calculate_s(std::vector<double> s,
     gamma_s_[0] = 2.0 * PI;
     gamma_s_[N_fi_s - 1] = 0.0;
 
-    // if (LoadSplineDLL() != 0)
-    // {
-    //     throw std::invalid_argument("Ошибка загрузки DLL!");
-    // }
+
     double bb[N_fi_s], cc[4 * N_fi_s];
     if (fc_spline(&N_fi_s, &gamma_s_[0], &s[0], bb, cc))
     {
