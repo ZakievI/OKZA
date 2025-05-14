@@ -1,9 +1,10 @@
-#ifndef UNIT4_HPP
+#ifndef _UNIT4_HPP
 #define UNIT4_HPP
 #include <vector>
 #include <cmath>
 #include <functional>
 #include <iostream>
+#include "../../../resourse/fcalc.h"
 
 
 /**
@@ -11,10 +12,11 @@
  *  Нахождени функции s(gamma)
  *
  *
- *  @tparam fi_s  Двумерный вектор, размера (N)*(2) {N - число разбиений s}, содержащий значения s_i и fi(s_i) .
- *  @tparam fi_g  Двумерный вектор, размера (N)*(2) {N - число разбиений gamma}, содержащий значения gamma_i и fi(gamma_i).
- *  @tparam s_a  Параметр, считываеться из файла param.dat.
- *  @return ...
+ *  @tparam s  Вектор размера N, содержащий значения s_i.
+ *  @tparam fi_s  Вектор размера N, содержащий значения fi(s_i) .
+ *  @tparam g Вектор размера M, в значениях которго необходимо найти s
+ *  @tparam ... константы
+ *  @return Вектор размера M
  */
 std::vector<double> calculate_s(std::vector<double> s,
      std::vector<double> fi_s, std::vector<double> g,
@@ -36,4 +38,4 @@ double newton(
     struct p params                                  // Доп. параметры функции
 );
 
-#endif UNIT4_HPP
+#endif

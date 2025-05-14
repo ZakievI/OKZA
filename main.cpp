@@ -1,7 +1,7 @@
 #include <iostream>
 
 #include <fstream>
-// #include "resourse\\fcalc.h"
+#include "resourse\\fcalc.h"
 #include "lib\\unit4\\include\\unit_4.hpp"
 #include <sstream>
 #include <vector>
@@ -76,9 +76,9 @@ int main()
     }
     file_s_fi.close(); // Закрываем файл
     file_s_g.close(); // Закрываем файл
-    // if (LoadSplineDLL() != 0)
-    // {
-    //     throw std::invalid_argument("Ошибка загрузки DLL!");
-    // }
+    if (LoadSplineDLL() != 0)
+    {
+        throw std::invalid_argument("Ошибка загрузки DLL!");
+    }
     calculate_s(data_s, data_fi_s, data_g, bet, gam, C1, u0, s_a, gam_a);
 }
