@@ -1,11 +1,10 @@
-#pragma once
-
 #ifndef UNIT4_HPP
 #define UNIT4_HPP
 #include <vector>
 #include <cmath>
 #include <functional>
 #include <iostream>
+
 
 /**
  *  @brief 
@@ -17,7 +16,7 @@
  *  @tparam s_a  Параметр, считываеться из файла param.dat.
  *  @return ...
  */
-void calculate_s(std::vector<double> s,
+std::vector<double> calculate_s(std::vector<double> s,
      std::vector<double> fi_s, std::vector<double> g,
     double const betta, double const G, double const C1,
      double U0, double const s_a, double const gamma_a);
@@ -37,4 +36,4 @@ double newton(
     struct p params                                  // Доп. параметры функции
 );
 
-#endif 
+#endif UNIT4_HPP

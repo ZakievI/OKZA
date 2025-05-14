@@ -1,6 +1,6 @@
 //���������� ���������� ��������
 
-#define _UNICODE
+#define UNICODE
 #define UNICODE
 #include <windows.h>
 #include <iostream>
@@ -54,7 +54,8 @@ int LoadSplineDLL()
     // измененные строки
     DWORD error = GetLastError();
 
-    hSpline=LoadLibrary(L"resourse\\fcalc.dll");
+    // hSpline=LoadLibrary(L"resourse\\fcalc.dll");
+    hSpline=LoadLibraryA("resourse\\fcalc.dll");
     if (!hSpline) {
         DWORD error = GetLastError();
         std::cerr << "Ошибка загрузки DLL! Код: " << error << std::endl;
