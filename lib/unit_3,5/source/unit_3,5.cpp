@@ -11,12 +11,14 @@
 
 using namespace std;
 
-double newton_method(double Pi, double G, double fi1, double initial) {
+double newton_method( double G, double fi1, double initial) {
 	double beta = initial;
 	int maxit = 500;
 	double tolerance = 1e-7;
 	double beta_prev;
 	int i = 0;
+	double Pi = acos(-1);
+
 	double a = Pi / G * fi1 - Pi / 2;
 	do {
 		beta_prev = beta;
@@ -156,7 +158,6 @@ vector<double> unit5(vector<double> s, vector<double> V, double gammaa, vector <
 
 int main() {
 
-	double Pi = acos(-1);
 	double G = 0.476448;
 	double fi1 = 1.233443;
 	vector <double> sdat;
@@ -214,7 +215,7 @@ int main() {
 		gamma.push_back(gamdat[i * 13]);
 		sj.push_back(gamdat[i * 13 + 2]);
 	}
-
+	
 	LoadSplineDLL();
 	double betta = 0;
 	double C1 = 0;
