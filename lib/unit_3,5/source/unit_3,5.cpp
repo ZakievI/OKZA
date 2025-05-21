@@ -7,7 +7,7 @@
 #include <cmath>
 #include <iomanip>
 
-#include "C:\Users\Tagir\Desktop\камал\Project1\Project1\fcalc.h"
+//#include "C:\Users\Tagir\Desktop\камал\Project1\Project1\fcalc.h"
 
 using namespace std;
 
