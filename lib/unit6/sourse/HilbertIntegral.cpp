@@ -1,4 +1,5 @@
 #include "../include/HilbertIntegral.hpp"
+#include <iostream>
 
 /**
  * @param gammas input parameter. Grid on a circle. Node gamma i-th.

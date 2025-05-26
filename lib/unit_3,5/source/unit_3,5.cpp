@@ -36,7 +36,6 @@ double newton_method( double G, double fi1, double initial) {
 double unit3(double G, double fi1, double& betta, double& C1, double& u0, double& gammaa) {
 	double Pi = acos(-1);
 	double initial = 0.001;
-	cout << "		unit 3 start " << endl;
 	double a = Pi / G * fi1 - Pi / 2;
 	if (G > 0) {
 		betta = newton_method( G, fi1, initial);
@@ -58,6 +57,7 @@ double unit3(double G, double fi1, double& betta, double& C1, double& u0, double
 		u0 = fi1 / 4;
 		gammaa = Pi;
 	}
+	/*
 	if (!isnan(betta)) {
 		cout << "Find betta: " << setprecision(10) << betta << endl;
 		cout << "Find C1: " << setprecision(10) << C1 << endl;
@@ -66,15 +66,11 @@ double unit3(double G, double fi1, double& betta, double& C1, double& u0, double
 		if (betta != 0) {
 			cout << "residual:  " << 1.0 / tan(betta) - a + betta << endl;
 		}
-	}
-	cout << "		unit 3 end" << endl;
+	}*/
 	return  0;
 }
 vector<double> unit5(vector<double> s, vector<double> V, double gammaa, vector <double>& gamma, vector <double>& sj, vector<double>& S1) {
-	cout << "		unit 5 start" << endl;
 	double Pi = acos(-1);
-
-
 
 	int splinesize = s.size();
 	vector<double> bb, cc;
@@ -125,8 +121,8 @@ vector<double> unit5(vector<double> s, vector<double> V, double gammaa, vector <
 	bbb.resize(sjsize);
 	ccc.resize(4 * sjsize);
 	fc_spline(&sjsize, &gamma[0], &Stildaj[0], &bbb[0], &ccc[0]);
-	nu1 = fc_spline_int(&sjsize, &down, &up, &bbb[0], &ccc[0]);
-	cout << "nu1 = " << (fc_spline_int(&sjsize, &down, &up, &bbb[0], &ccc[0]) - A1) / (2 * Pi) << endl;
+	nu1 = (fc_spline_int(&sjsize, &down, &up, &bbb[0], &ccc[0]) - A1) / (2 * Pi);
+	//cout << "nu1 = " << (fc_spline_int(&sjsize, &down, &up, &bbb[0], &ccc[0]) - A1) / (2 * Pi) << endl;
 
 	vector<double> nu2S;
 	for (int j = 0; j < sjsize;j++) {
@@ -136,8 +132,8 @@ vector<double> unit5(vector<double> s, vector<double> V, double gammaa, vector <
 	bbbb.resize(sjsize);
 	cccc.resize(4 * sjsize);
 	fc_spline(&sjsize, &gamma[0], &nu2S[0], &bbbb[0], &cccc[0]);
-	nu2 = fc_spline_int(&sjsize, &down, &up, &bbbb[0], &cccc[0]);
-	cout << "nu2 = " << (fc_spline_int(&sjsize, &down, &up, &bbbb[0], &cccc[0]) - A2) / (Pi) << endl;
+	nu2 = (fc_spline_int(&sjsize, &down, &up, &bbbb[0], &cccc[0]) - A2) / (Pi);
+	//cout << "nu2 = " << (fc_spline_int(&sjsize, &down, &up, &bbbb[0], &cccc[0]) - A2) / (Pi) << endl;
 
 	vector<double> nu3S;
 	for (int j = 0; j < sjsize;j++) {
@@ -147,11 +143,10 @@ vector<double> unit5(vector<double> s, vector<double> V, double gammaa, vector <
 	bbbbb.resize(sjsize);
 	ccccc.resize(4 * sjsize);
 	fc_spline(&sjsize, &gamma[0], &nu3S[0], &bbbbb[0], &ccccc[0]);
-	nu3 = fc_spline_int(&sjsize, &down, &up, &bbbbb[0], &ccccc[0]);
-	cout << "nu3 = " << (nu3 - A3) / Pi << endl;
+	nu3 = (fc_spline_int(&sjsize, &down, &up, &bbbbb[0], &ccccc[0])-A3)/Pi;
+	//cout << "nu3 = " << (nu3 - A3) / Pi << endl;
 	for (int j = 0; j < sjsize;j++) {
 		S1.push_back(Stildaj[j] - (nu1 + nu2 * cos(gamma[j]) + nu3 * sin(gamma[j])));
 	}
-	cout << "		unit 5 end " << endl;
 	return S1;
 }

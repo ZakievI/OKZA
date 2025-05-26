@@ -71,6 +71,7 @@ std::vector<double> calculate_s(std::vector<double> s,
                                 double const betta, double const G, double const C1,
                                 double U0, double const s_a, double const gamma_a)
 {
+    
     if (s.size() != fi_s.size())
         throw std::invalid_argument("Ошибка calculate_s! size(s)!=size(fi_s)");
     int N_fi_s = fi_s.size();
@@ -113,7 +114,7 @@ std::vector<double> calculate_s(std::vector<double> s,
             std::function<double(double, struct p)>(
                 [](double gam, struct p p)
                 { return dfunc(gam, p); }),
-            zero, 1e-12, 20, params);
+            zero, 1e-5, 5000, params);
     }
     gamma_s_[0] = 2.0 * PI;
     gamma_s_[N_fi_s - 1] = 0.0;
@@ -127,7 +128,6 @@ std::vector<double> calculate_s(std::vector<double> s,
     for (size_t i = 0; i < s_gamma.size(); i++)
     {
         s_gamma[i] = fc_spline_val(&N_fi_s, &g[i], bb, cc);
-        std::cout << g[i] << " " << s_gamma[i] << std::endl;
     }
     return s_gamma;
 };
