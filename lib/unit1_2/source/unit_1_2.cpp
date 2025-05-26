@@ -1,4 +1,4 @@
-#include"unit_1_2.h"
+#include"../include/unit_1_2.hpp"
 
 void svWriter(std::string Sout, std::vector<double>& S, std::vector<double>& V)
 {
@@ -7,14 +7,14 @@ void svWriter(std::string Sout, std::vector<double>& S, std::vector<double>& V)
     in >> N;
     in.ignore();
 
-    std::vector<double> S1(N);
-    std::vector<double> V1(N);
+    std::vector<double> S1(N+1);
+    std::vector<double> V1(N+1);
 
 
     std::string header;
     std::getline(in, header);
 
-    for (int i = 0; i < N; i++)
+    for (int i = 0; i <= N; i++)
     {
         in >> S1[i];
         in >> V1[i];

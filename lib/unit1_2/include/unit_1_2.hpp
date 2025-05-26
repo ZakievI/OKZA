@@ -7,7 +7,7 @@
 #include<string> 
 #include<cmath> 
 #include<sstream>
-#include"fcalc.h"
+#include"../../../resourse/fcalc.h"
 
 void svWriter(std::string Sout, std::vector<double>& S, std::vector<double>& V);
 
@@ -19,4 +19,4 @@ void GCompute(double fi0, double fi1, double& G);
 
 void svWriterGCRS(std::string Sout, std::vector<double>& S, std::vector<double>& V);
 
-#endif unit_1_2_H
+#endif

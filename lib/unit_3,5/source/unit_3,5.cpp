@@ -7,7 +7,7 @@
 #include <cmath>
 #include <iomanip>
 
-//#include "C:\Users\Tagir\Desktop\камал\Project1\Project1\fcalc.h"
+//#include "C:\Users\Tagir\Desktop\пїЅпїЅпїЅпїЅпїЅ\Project1\Project1\fcalc.h"
 
 using namespace std;
 
@@ -39,14 +39,14 @@ double unit3(double G, double fi1, double& betta, double& C1, double& u0, double
 	cout << "		unit 3 start " << endl;
 	double a = Pi / G * fi1 - Pi / 2;
 	if (G > 0) {
-		betta = newton_method(Pi, G, fi1, initial);
+		betta = newton_method( G, fi1, initial);
 		gammaa = Pi + 2 * betta;
 		u0 = G / (4 * Pi * sin(betta));
 		C1 = fi1 - (G / (2 * Pi)) * (1 / tan(betta));
 	}
 	else if (G < 0) {
 		cout << "G negative" << endl;
-		betta = newton_method(Pi, G, fi1, -initial);
+		betta = newton_method( G, fi1, -initial);
 		gammaa = Pi + 2 * betta;
 		u0 = G / (4 * Pi * sin(betta));
 		C1 = fi1 - (G / (2 * Pi)) * (1 / tan(betta));
@@ -154,80 +154,4 @@ vector<double> unit5(vector<double> s, vector<double> V, double gammaa, vector <
 	}
 	cout << "		unit 5 end " << endl;
 	return S1;
-}
-
-int main() {
-
-	double G = 0.476448;
-	double fi1 = 1.233443;
-	vector <double> sdat;
-	string str1;
-	ifstream tempp;
-	double ssize = 0;
-	string trash1;
-	tempp.open("C:/Users/Tagir/Desktop/камал/resourse/s.dat");
-	if (!tempp.is_open())
-	{
-		cout << "file_not_open";
-	}
-	else {
-		tempp >> str1;
-		ssize = stod(str1);
-		getline(tempp, trash1);
-		getline(tempp, trash1);
-		while (tempp >> str1) {
-			sdat.push_back(stod(str1));
-		}
-	}
-	vector<double> s;
-	vector<double> V;
-	for (int i = 0; i <= ssize;i++) {
-		s.push_back(sdat[i * 3]);
-		V.push_back(sdat[i * 3 + 1]);
-		//	cout << s[i] << " " << V[i] << endl;
-	}
-
-
-	vector <double> gamdat;
-	string str;
-	double gamsize = 0;
-	ifstream temp;
-	string trash;
-	temp.open("C:/Users/Tagir/Desktop/камал/resourse/gam.dat");
-	if (!temp.is_open())
-	{
-		cout << "file_not_open";
-	}
-	else {
-		temp >> str;
-		gamsize = stod(str);
-		getline(temp, trash);
-		getline(temp, trash);
-
-		while (temp >> str) {
-
-			gamdat.push_back(stod(str));
-		}
-	}
-	vector<double> gamma;
-	vector<double> sj;
-	for (int i = 0; i <= gamsize; i++) {
-		gamma.push_back(gamdat[i * 13]);
-		sj.push_back(gamdat[i * 13 + 2]);
-	}
-	
-	LoadSplineDLL();
-	double betta = 0;
-	double C1 = 0;
-	double u0 = 0;
-	double gammaa = 0;
-	vector<double> S1;
-
-	unit3(G, fi1, betta, C1, u0, gammaa);
-	cout << endl;
-	unit5(s, V, gammaa, gamma, sj, S1);
-
-
-	FreeSplineDLL();
-	return 0;
 }
