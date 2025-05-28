@@ -1,0 +1,3 @@
+C:/projects/okza2/OKZA/out/build/x86-Debug/CMakeFiles/okza_main.dir
+C:/projects/okza2/OKZA/out/build/x86-Debug/CMakeFiles/edit_cache.dir
+C:/projects/okza2/OKZA/out/build/x86-Debug/CMakeFiles/rebuild_cache.dir
