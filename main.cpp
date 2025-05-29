@@ -3,7 +3,8 @@
 #include "lib\\unit4\\include\\unit_4.hpp"
 #include "lib\\unit1_2\\include\\unit_1_2.hpp"
 #include "lib\\unit6\\include\\HilbertIntegral.hpp"
-#include "lib\\unit_3,5\\include\\unit_3,5.hpp"
+#include "lib\\unit_3_5\\include\\unit_3_5.hpp"
+#include "lib\\unit_7_8\\include\\unit_7_8.hpp"
 #include <map>
 #include <stdexcept>
 #define PI 2 * asin(1)
@@ -105,5 +106,29 @@ int main()
 	std::cout << "start unit 5" << std::endl;
 	unit5(S, V, gamma_a_, gamma_arr_, S_gamma_arr, S1);
 	std::cout << "finish unit 5" << std::endl;
+
+	//////////////////////////////////////////////////////
+	////////////////////////unit 6////////////////////////
+	std::cout << "start unit 6\n";
+	std::vector<double> S2;
+
+	hilbert_integral(gamma_arr_, S1, S2);
+	std::cout << "end unit 6\n";
+
+	//////////////////////////////////////////////////////
+	////////////////////////unit 7-8////////////////////////
+	std::cout << "start unit 7\n";
+	double db = 0.001;
+
+	std::vector<double> x_out;
+	std::vector<double> y_out;
+	std::vector<double> s_out;
+	double b_out;
+	double alpha_out;
+	double relative_thickness_out;
+
+	unit_7_8(u0_, betta_, db, gamma_arr_, S_gamma_arr, S2, x_out, y_out, s_out, b_out, alpha_out, relative_thickness_out);
+	std::cout << "end unit 7-8\n";
+
 	FreeSplineDLL();
 }
