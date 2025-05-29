@@ -32,24 +32,17 @@ void SaCompute(std::vector<double> S, std::vector<double> V, double& sa)
     size_t k1;
     size_t k2;
 
-    for (int i = 1; i < n - 1; i++)
+    for (int i = 0; i < n - 1; i++)
     {
-        if (V[i] == 0)
-        {
-            k1 = i + 1;
-            k2 = i - 1;
-            break;
-        }
-        else if (V[i + 1] > 0 && V[i] < 0)
+        if (V[i] * V[i + 1] <= 0)
         {
             k1 = i + 1;
             k2 = i;
             break;
         }
-
     }
 
-    sa = S[k2] - (-V[k2] * (S[k1] - S[k2]) / (V[k1] + V[k2]));
+    sa = S[k2] - (V[k2] * (S[k1] - S[k2]) / (V[k1] - V[k2]));
 }
 
 void FiCompute(double sa, std::vector<double> S, std::vector<double> V, std::vector<double>& Fi, double& fi0, double& fi1)
